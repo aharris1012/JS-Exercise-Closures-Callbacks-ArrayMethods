@@ -199,6 +199,7 @@ function getFullNames(runners) {
   runners.forEach(function(items){
   return names.push(`${items.last_name}, ${items.first_name}`);
   })
+  return getFullNames
 }
   /* CODE HERE */
 
@@ -215,7 +216,10 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
+function firstNamesAllCaps(runners) {
+  runners.map(function(currentValue){
+    return currentValue.items.toUpperCase();
+  });
   /* CODE HERE */
 }
 
@@ -232,7 +236,10 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
+function getRunnersByTShirtSize(runners, tshirtSize) {
+  runners.forEach(function(items){
+    return tshirtSize.push ($'{items.shirt_size}`);
+  )
   /* CODE HERE */
 }
 
@@ -268,9 +275,9 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  const counting = 0;
+  return function counter() {
+    ++ counting;
   }
   // BROKEN CODE ENDS
 }
@@ -295,9 +302,18 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(maxvalue) {
   /* CODE HERE */
+  let count = 0;
+ function counter(){
+  for(let i=0; i <=maxvalue; i++)
+  if (i === maxvalue){
+    return count++
+  }
+  }
+  return counter;
 }
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
