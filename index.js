@@ -172,9 +172,12 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  callback(list.map(x => list.push(list.includes(x) !== true)));
+
 }
+
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -236,10 +239,10 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(runners, tshirtSize) {
+function getRunnersByTShirtSize(runners, tShirtSize) {
   runners.forEach(function(items){
-    return tshirtSize.push ($'{items.shirt_size}`);
-  )
+    return tShirtSize.push (`${items.shirt_size}`);
+  
   /* CODE HERE */
 }
 
@@ -253,9 +256,14 @@ function getRunnersByTShirtSize(runners, tshirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
+  function tallyUpDonations(runners) {
   /* CODE HERE */
-}
+  return runners.reduce((total, array) => {
+    return total + array.donation;
+  }, 0);
+ 
+ }
+
 
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
