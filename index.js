@@ -117,13 +117,13 @@ function processSum(numberList, callback) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(num1,num2,callback) {
-  return callback (num1, num2);
+function processProduct(num1, num2, callback) {
+  return callback (num1 * num2);
   /* CODE HERE */
 }
 
 /**
- * ### Challenge `processContains`
+ * ### Challenge `processContains`s
  * 
  * @instructions
  * Implement a higher-order function called `processContains`.
@@ -143,13 +143,7 @@ function processProduct(num1,num2,callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  if (item == list){
-    return true;
-  }
-  else{
-    return false;
-  }
-  return callback (processContains);
+  return callback(list.includes(item));
   /* CODE HERE */
 }
 
@@ -199,10 +193,11 @@ function processDuplicateFree(list, callback) {
 */
 function getFullNames(runners) {
   let names = [];
-  runners.forEach(function(items){
-  return names.push(`${items.last_name}, ${items.first_name}`);
-  })
-  return getFullNames
+  /* CODE HERE */
+  runners.forEach(function(items) {
+    names.push(`${items.last_name}, ${items.first_name}`);
+  });
+  return names;
 }
   /* CODE HERE */
 
@@ -219,11 +214,9 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(runners) {
-  runners.map(function(currentValue){
-    return currentValue.items.toUpperCase();
-  });
+function firstNamesAllCaps(runs) {
   /* CODE HERE */
+  return runs.map(run => run.first_name.toUpperCase());
 }
 
 /**
@@ -239,11 +232,10 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
+
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  runners.forEach(function(items){
-    return tShirtSize.push (`${items.shirt_size}`);
-  
   /* CODE HERE */
+  return runners.filter(runners => runners.shirt_size === tShirtSize);
 }
 
 /**
@@ -283,9 +275,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const counting = 0;
+  let count = 0;
   return function counter() {
-    ++ counting;
+      return count++;
   }
   // BROKEN CODE ENDS
 }
@@ -310,14 +302,13 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(maxvalue) {
-  /* CODE HERE */
+function counterMakerWithLimit(limit) {
   let count = 0;
- function counter(){
-  for(let i=0; i <=maxvalue; i++)
-  if (i === maxvalue){
-    return count++
-  }
+  function counter() {
+    if (count > limit) {
+      count = 0;
+    }
+    return count++;
   }
   return counter;
 }
